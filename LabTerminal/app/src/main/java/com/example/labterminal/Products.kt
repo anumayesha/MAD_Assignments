@@ -14,17 +14,34 @@ class Products : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val arrayList = ArrayList<model1>()
-        arrayList.add(model1(id = 1, title="book"))
-        arrayList.add(model1(id = 2, title="book1"))
         arrayList.add(model1(id = 3, title="book2"))
-        arrayList.add(model1(id = 4, title="book3"))
-        arrayList.add(model1(id = 5, title="book4"))
-        arrayList.add(model1(id = 6, title="book5"))
-        arrayList.add(model1(id = 7, title="book6"))
+        val volley = volley<model1>()
+        volley.add(model1(id = 1, title="book"))
+        volley.add(model1(id = 2, title="book1"))
+        volley.add(model1(id = 3, title="book2"))
+        volley.add(model1(id = 4, title="book3"))
+        volley.add(model1(id = 5, title="book4"))
+        volley.add(model1(id = 6, title="book5"))
+        volley.add(model1(id = 7, title="book6"))
 
 
-        val myAdapter = MyAdapter1(arrayList, this)
+        val myAdapter = MyAdapter1(com.example.labterminal.volley, this)
+        recyclerview.layoutManager = LinearLayoutManager(this)
+        recyclerview.adapter = myAdapter
+    }
+
+    private fun <T> volley(): volley {
+        val url = "https://reqres.in/api/users"
+
+        volley.add(model1(id = 1, title="book"))
+        volley.add(model1(id = 2, title="book1"))
+        volley.add(model1(id = 3, title="book2"))
+        volley.add(model1(id = 4, title="book3"))
+        volley.add(model1(id = 5, title="book4"))
+        volley.add(model1(id = 6, title="book5"))
+        volley.add(model1(id = 7, title="book6"))
+
+        val myAdapter = MyAdapter1(com.example.labterminal.volley, this)
         recyclerview.layoutManager = LinearLayoutManager(this)
         recyclerview.adapter = myAdapter
     }
